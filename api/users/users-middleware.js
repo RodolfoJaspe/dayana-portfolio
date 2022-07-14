@@ -20,9 +20,9 @@ const restricted = (req, res, next) => {
 }
 
 const ValidateUserNameUnique = async (req, res, next) => {
-    const { user_name } = req.body
+    const { username } = req.body
     try {
-        const existing = await Users.findBy({ user_name })
+        const existing = await Users.findBy({ username })
         if(existing) {
 
             res.status(400).json({message: "Username already exists!"})
@@ -36,11 +36,11 @@ const ValidateUserNameUnique = async (req, res, next) => {
 
 
 const ValidateLogin = async (req, res, next) => {
-  const { user_name } = req.body
-  const existingUser = await Users.findBy({ user_name })
-//   if(user_name === undefined || user_name.length < 3) {
+  const { username } = req.body
+  const existingUser = await Users.findBy({ username })
+//   if(username === undefined || username.length < 3) {
 //       next({ status: 400, message: 'Username must exist and be more than 3 characters!'})
-//   } else if(typeof user_name !== 'string'){
+//   } else if(typeof username !== 'string'){
 //           res.status(400).json({message: 'username must not be a number!'})
 //   } else    /// ALREADY VALIDATED IN THE FRONTEND ///
   if(!existingUser){
@@ -52,10 +52,10 @@ const ValidateLogin = async (req, res, next) => {
 }
 
     const ValidateRegistration = (req, res, next) => {
-        const { user_name, password } = req.body
-        if(user_name === undefined || user_name.trim() === '') {
+        const { username, password } = req.body
+        if(username === undefined || username.trim() === '') {
             next({ status: 400, message: 'Please enter a username!'})
-        } else if(user_name.trim().length < 3) {
+        } else if(username.trim().length < 3) {
             next({ status: 400, message: 'Username must be at least 3 characters!'})
         } else if(password === undefined || password.trim() === '') {
             next({ status: 400, message: 'Please enter a password'})

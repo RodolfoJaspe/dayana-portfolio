@@ -23,7 +23,7 @@ async function createUser(user) {
         .then(rows => {
             return rows[0]
         })
-}   ///    done    ///
+}
 
 const deleteUser = async (id) => {
     await db("users").where("user_id",id).delete()
