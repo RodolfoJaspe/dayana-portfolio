@@ -7,8 +7,8 @@ const getHeadshots = (user_id) => {
     return headshots
 }
 
-const getHeadshot = (headshot_id) => {
-    return db("todos").where({headshot_id}).first()
+const getHeadshot = (id) => {
+    return db("headshots").where({id}).first()
 }
 
 const createHeadshot = (headshot) => {
@@ -22,9 +22,9 @@ const createHeadshot = (headshot) => {
         })
 }
 
-const deleteHeadshot = async (headshot_id) => {
-    const deletedHeadshot = await getHeadshot(headshot_id) 
-    await db("headshots").where({headshot_id}).delete()
+const deleteHeadshot = async (id) => {
+    const deletedHeadshot = await getHeadshot(id) 
+    await db("headshots").where({id}).delete()
     return deletedHeadshot
 }
 

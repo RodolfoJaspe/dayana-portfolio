@@ -7,8 +7,8 @@ const getVideos = (user_id) => {
     return videos
 }
 
-const getVideo = (video_id) => {
-    return db("videos").where({video_id}).first()
+const getVideo = (id) => {
+    return db("videos").where({id}).first()
 }
 
 const createVideo = (video) => {
@@ -22,9 +22,9 @@ const createVideo = (video) => {
         })
 }
 
-const deleteVideo = async (video_id) => {
-    const deletedVideo = await getVideo(video_id) 
-    await db("videos").where({video_id}).delete()
+const deleteVideo = async (id) => {
+    const deletedVideo = await getVideo(id) 
+    await db("videos").where({id}).delete()
     return deletedVideo
 }
 

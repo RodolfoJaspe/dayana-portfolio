@@ -11,25 +11,25 @@
             table.string("biography");
         })
         .createTable('headshots', table => {
-            table.increments("headshot_id");
+            table.increments("id");
             table.string("title", 128).notNullable();
             table.string("url").notNullable();
             table.integer("user_id").notNullable();
         })
         .createTable('onstage', table => {
-            table.increments("onstage_id");
+            table.increments("id");
             table.string("title", 128).notNullable();
             table.string("url").notNullable();
             table.integer("user_id").notNullable();
         })
         .createTable('onset', table => {
-            table.increments("onset_id");
+            table.increments("id");
             table.string("title", 128).notNullable();
             table.string("url").notNullable();
             table.integer("user_id").notNullable();
         })
         .createTable('videos', table => {
-            table.increments("video_id");
+            table.increments("id");
             table.string("title", 128).notNullable();
             table.string("url").notNullable();
             table.integer("user_id").notNullable();

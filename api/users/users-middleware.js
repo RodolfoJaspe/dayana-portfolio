@@ -38,6 +38,7 @@ const ValidateUserNameUnique = async (req, res, next) => {
 const ValidateLogin = async (req, res, next) => {
   const { username } = req.body
   const existingUser = await Users.findBy({ username })
+  console.log(existingUser)
 //   if(username === undefined || username.length < 3) {
 //       next({ status: 400, message: 'Username must exist and be more than 3 characters!'})
 //   } else if(typeof username !== 'string'){

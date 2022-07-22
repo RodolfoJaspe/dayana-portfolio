@@ -7,8 +7,8 @@ const getOnstage = (user_id) => {
     return onstage
 }
 
-const getSingleOnstage = (onstage_id) => {
-    return db("onstage").where({onstage_id}).first()
+const getSingleOnstage = (id) => {
+    return db("onstage").where({id}).first()
 }
 
 const createOnstage = (onstage_image) => {
@@ -22,9 +22,9 @@ const createOnstage = (onstage_image) => {
         })
 }
 
-const deleteOnstage = async (onstage_id) => {
-    const deletedOnstage = await getSingleOnstage(onstage_id) 
-    await db("onstage").where({onstage_id}).delete()
+const deleteOnstage = async (id) => {
+    const deletedOnstage = await getSingleOnstage(id) 
+    await db("onstage").where({id}).delete()
     return deletedOnstage
 }
 

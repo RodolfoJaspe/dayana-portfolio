@@ -17,6 +17,7 @@ router.post("/", async ( req, res, next ) => {
         console.log(headshot)
         res.status(201).json(headshot)
     }catch(err){
+        console.log(err)
         next(err)
     }
 })

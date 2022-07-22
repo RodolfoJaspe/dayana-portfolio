@@ -7,8 +7,8 @@ const getOnset = (user_id) => {
     return onset
 }
 
-const getSingleOnset = (onset_id) => {
-    return db("onset").where({onset_id}).first()
+const getSingleOnset = (id) => {
+    return db("onset").where({id}).first()
 }
 
 const createOnset = (onset_image) => {
@@ -22,9 +22,9 @@ const createOnset = (onset_image) => {
         })
 }
 
-const deleteOnset = async (onset_id) => {
-    const deletedOnset = await getSingleOnset(onset_id) 
-    await db("onset").where({onset_id}).delete()
+const deleteOnset = async (id) => {
+    const deletedOnset = await getSingleOnset(id) 
+    await db("onset").where({id}).delete()
     return deletedOnset
 }
 
