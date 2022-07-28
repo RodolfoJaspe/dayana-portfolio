@@ -5,9 +5,7 @@ const getAllUsers = () => {
 }
 
 const getUser = (user_id) => {
-    console.log(user_id)
     const user = db("users").where({user_id}).first()
-    console.log("from the getUser", user)
     return user
 }
 
@@ -25,13 +23,23 @@ async function createUser(user) {
         })
 }
 
+async function updateUser(user_id, biography){
+    await db('users')
+        .where({user_id})  
+        .update(biography);
+    return getUser(user_id)
+}
+
 const deleteUser = async (id) => {
     await db("users").where("user_id",id).delete()
 }
+
+
 module.exports = {
   getAllUsers,
   getUser,
   createUser,
+  updateUser,
   deleteUser,
   findBy
 }

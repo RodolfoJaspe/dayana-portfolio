@@ -61,4 +61,14 @@ router.delete('/:id', (req, res, next) => {
         })
 })
 
+router.put('/:id', (req,res,next) => {
+    Users.updateUser(req.params.id, req.body)
+        .then(user => {
+            res.status(200).json(user)
+        })
+        .catch(err => {
+            next(err)
+        })
+})
+
 module.exports = router;
