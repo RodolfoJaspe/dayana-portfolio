@@ -10,9 +10,16 @@ const onstageRouter = require("./images/onstage/onstage-router");
 
 const cors = require("cors");
 
+const corsOptions = {
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+    optionSuccessStatus: 200,
+  };
+
 const helmet = require("helmet");
 
-server.use(cors());
+server.use(cors(corsOptions));
 server.use(helmet());
 
 server.use(express.json());
@@ -23,7 +30,7 @@ server.use("/api/onset", onsetRouter);
 server.use("/api/onstage", onstageRouter);
 
 server.get("/", (req, res) => {
-    res.status(200).send("API running")
+    res.status(200).send("API runniiiiing")
 });
 
 server.use((err, req, res, next) => {
