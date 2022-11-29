@@ -16,9 +16,9 @@ const corsOptions = {
     credentials: true,
     optionSuccessStatus: 200,
   };
-
-const helmet = require("helmet");
-
+  
+  const helmet = require("helmet");
+  
 server.use(cors(corsOptions));
 server.use(helmet());
 
@@ -30,7 +30,7 @@ server.use("/api/onset", onsetRouter);
 server.use("/api/onstage", onstageRouter);
 
 server.get("/", (req, res) => {
-    res.status(200).send("API runniiiiing")
+    res.status(200).send("API running")
 });
 
 server.use((err, req, res, next) => {
