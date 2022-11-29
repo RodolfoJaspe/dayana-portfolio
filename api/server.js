@@ -30,7 +30,7 @@ server.use("/api/onset", onsetRouter);
 server.use("/api/onstage", onstageRouter);
 
 server.get("/", (req, res) => {
-    res.status(200).send("API runniiing")
+    res.status(200).send("API running")
 });
 
 server.use((err, req, res, next) => {
