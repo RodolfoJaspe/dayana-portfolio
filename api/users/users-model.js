@@ -30,6 +30,14 @@ async function updateUser(user_id, biography){
     return getUser(user_id)
 }
 
+async function updateResume(user_id, body){
+    await db('users')
+        .where({user_id})  
+        .update(resume_img, body.resume_img)
+        .update(resume_pdf, body.resume_pdf);
+    return getUser(user_id)
+}
+
 const deleteUser = async (id) => {
     await db("users").where("user_id",id).delete()
 }
@@ -41,5 +49,6 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
-  findBy
+  findBy,
+  updateResume
 }
