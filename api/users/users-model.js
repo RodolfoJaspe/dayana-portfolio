@@ -33,8 +33,8 @@ async function updateUser(user_id, biography){
 async function updateResume(user_id, body){
     await db('users')
         .where({user_id})  
-        .update(resume_img, body.resume_img)
-        .update(resume_pdf, body.resume_pdf);
+        .update("resume_img", body.resume_img)
+        .update("resume_pdf", body.resume_pdf);
     return getUser(user_id)
 }
 

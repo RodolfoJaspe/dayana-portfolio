@@ -71,7 +71,7 @@ router.put('/:id', (req,res,next) => {
         })
 })
 
-router.put('/:id/email', (req,res,next) => {
+router.put('/:id/resume', (req,res,next) => {
     Users.updateResume(req.params.id, req.body)
         .then(user => {
             res.status(200).json(user)
