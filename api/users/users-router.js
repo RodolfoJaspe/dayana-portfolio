@@ -72,7 +72,7 @@ router.put('/:id', (req,res,next) => {
 })
 
 router.put('/:id/resume', (req,res,next) => {
-    Users.updateResume(req.params.id, req.body)
+    Users.updateResume(req.params.id, req.body.resume)
         .then(user => {
             res.status(200).json(user)
         })
