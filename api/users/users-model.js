@@ -31,14 +31,9 @@ async function updateUser(user_id, biography){
 }
 
 async function updateResume(user_id, body){
-    // modify image link to be able to show image //
-    const imgId = body.resume_img.slice(body.resume_img.indexOf('/d/')+3 , body.resume_img.indexOf('/view?usp'))
-
-    const viewableImgLink = "https://drive.google.com/uc?export=view&id="+imgId
-
     await db('users')
         .where({user_id})  
-        .update("resume_img", viewableImgLink)
+        .update("resume_img", body.resume_img)
         .update("resume_pdf", body.resume_pdf);
     return getUser(user_id)
 }
